@@ -24,16 +24,21 @@ For more information, see:
     <table class="patient-table">
       <thead>
         <tr>
-          <td style="font-weight:bold">Patient Name</td>
           <td style="font-weight:bold">Condition</td>
           <td style="font-weight:bold">Condition Diagonsis</td>
-          <td style="font-weight:bold">Link</td>
+          <td style="font-weight:bold; width:60px;">Link</td>
         </tr>
       </thead>
       <tbody>
+        <tr ng-repeat="condition in data">
+          <td>{{ condition.resource.code.text }}</td>
+          <td>{{ condition.resource.dateRecorded }}</td>
+          <td style="text-align:center"><a href="createLink(condition.resource.code.text)">Link</a></td>
+        </tr>
       </tbody>
     </table>
-    <div  class="badData" ng-if="badData"><h4> There is no data to display</h4></div>
+    <div  class="badData" ng-if="badData"><h4>There is no data to display</h4></div>
+    <div class="loading" ng-if="loading"><h4>One moment please</h4></div>
   </div>
   </div>
 </div>
