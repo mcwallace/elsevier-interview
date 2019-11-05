@@ -1,0 +1,39 @@
+<!--
+This is your default homepage.
+For more information, see:
+• https://sailsjs.com/documentation/concepts/views
+• https://sailsjs.com/documentation/concepts/routes
+-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+<div ng-app="patientTable" class="default-page" ng-controller="patientDataController as ctrl">
+  <div class="header">
+    <h1 id="main-title" class="container"><%= __('A brand new app.') %></h1>
+    <h3 class="container">You're looking at: <code><%= view.pathFromApp + '.' +view.ext %></code></h3>
+  </div>
+  <div class="input-data">
+    <h3>Patient ID:</h3>
+    <input type="text" name="name" id="patientName" size="12" ng-model="patient.id">
+    <a class="btn" id="submit" ng-click="makeCall(patient.id)">Submit</a>
+    <h3>{{ patient.name }}</h3>
+    <h4>{{ patient.gender }} - {{ patient.age }}</h4>
+  </div>
+  <div class="patient-info">
+    <table class="patient-table">
+      <thead>
+        <tr>
+          <td style="font-weight:bold">Patient Name</td>
+          <td style="font-weight:bold">Condition</td>
+          <td style="font-weight:bold">Condition Diagonsis</td>
+          <td style="font-weight:bold">Link</td>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <div  class="badData" ng-if="badData"><h4> There is no data to display</h4></div>
+  </div>
+  </div>
+</div>
